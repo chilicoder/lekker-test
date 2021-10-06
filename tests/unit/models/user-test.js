@@ -10,9 +10,9 @@ module('Unit | Model | user', function(hooks) {
     let store = this.owner.lookup('service:store');
     let userModel = store.createRecord('user', {});
 
-    assert.equal(userModel.value, false, 'Default value should be false.')
-    run(() => userModel.changeValue());
-    assert.equal(userModel.value, true, 'Value should change when function is called.');
+    assert.equal(userModel.archived, false, 'Default value should be false.')
+    run(() => userModel.toggleAcrhived());
+    assert.equal(userModel.archived, true, 'Value should change when function is called.');
     assert.ok(userModel);
   });
 });
