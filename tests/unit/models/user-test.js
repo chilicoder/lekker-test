@@ -11,7 +11,7 @@ module('Unit | Model | user', function(hooks) {
     let userModel = store.createRecord('user', {});
 
     assert.equal(userModel.archived, false, 'Default value should be false.')
-    run(() => userModel.toggleAcrhived());
+    run(() => userModel.toggleArchived());
     assert.equal(userModel.archived, true, 'Value should change when function is called.');
     assert.ok(userModel);
   });

@@ -1,8 +1,8 @@
-{{#if @model.archived}}
+{{#if @user.archived}}
   <p class="subtitle has-text-white my-2">
     The user is currently archived.
   </p>
 {{/if}}
-<button class="button" type="button">
-  {{if @model.archived "Unarchive" "Archive"}}
+<button class="button" type="button" {{on 'click' this.toggleArchived}} data-test-toggle-archive-button>
+  {{if @user.archived 'Unarchive' 'Archive'}}
 </button>

@@ -3,7 +3,7 @@
     <div class="column is-3 is-offset-4">
 
       <LinkTo @route="users">
-        <button class="button mb-2" type="button">
+        <button class="button mb-2" type="button" data-test-back-to-users>
           Back to users
         </button>
       </LinkTo>
@@ -19,7 +19,6 @@
         </p>
 
         <UserArchive @user={{@model}}/>
-        {{!-- Place the component to archive/unarchive users here --}}
 
       </div>
     </div>

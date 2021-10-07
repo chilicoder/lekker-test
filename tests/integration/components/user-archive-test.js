@@ -12,15 +12,6 @@ module('Integration | Component | user-archive', function(hooks) {
 
     await render(hbs`<UserArchive />`);
 
-    assert.equal(this.element.textContent.trim(), '');
-
-    // Template block usage:
-    await render(hbs`
-      <UserArchive>
-        template block text
-      </UserArchive>
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.equal(this.element.textContent.trim(), 'Archive');
   });
 });
