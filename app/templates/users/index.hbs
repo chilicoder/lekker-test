@@ -1,10 +1,11 @@
 {{page-title 'User'}}
 <div class="container">
-  <div class="columns is-centered">
-
-    {{#each @model as |user|}}
-      <div class="column">
-
+  <h2>
+    Users
+  </h2>
+  <div class="columns is-centered" data-test-unarchived-users>
+    {{#each this.unarchivedUsers as |user|}}
+      <div class="column" data-test-single-unarchived-user>
         <LinkTo @route="users.user" @model={{user}}>
           <div class="user-select is-220px">
             <img
@@ -13,12 +14,43 @@
               width="60px"
               alt="profile-image"
             />
-            <p>{{user.name}}</p>
+            <p>
+              {{user.name}}
+            </p>
           </div>
         </LinkTo>
-
       </div>
     {{/each}}
-
   </div>
+  <button type="button" data-test-toggle-show-archived {{on 'click' this.toggleShowArchived}}>
+    {{if this.showArchivedUsers "Hide" "Show"}} archived users
+  </button>
+  {{#if this.showArchivedUsers}}
+    <h4>
+      Archived users
+    </h4>
+    <div class="columns is-centered" data-test-archived-users>
+      {{#each this.archivedUsers as |user|}}
+        <div class="column" data-test-single-archived-user>
+          <LinkTo @route="users.user" @model={{user}}>
+            <div class="user-select is-220px">
+              <img
+                class="is-pulled-left"
+                src={{user.image}}
+                width="60px"
+                alt="profile-image"
+              />
+              <p>
+                {{user.name}}
+              </p>
+            </div>
+          </LinkTo>
+        </div>
+      {{else}}
+        <p>
+          There are no archived users yet.
+        </p>
+      {{/each}}
+    </div>
+  {{/if}}
 </div>
