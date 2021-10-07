@@ -15,5 +15,7 @@ export default create({
   archivedUsers: collection('[data-test-single-archived-user]', {
     name: text('div.user-select p', { at: 0 }),
     clickUser: clickable('a'),
-  })
+  }),
+  toggleShowArchivedText: text('[data-test-toggle-show-archived]'),
+  toggleShowArchived: clickable('[data-test-toggle-show-archived]'),
 });

@@ -22,7 +22,10 @@
       </div>
     {{/each}}
   </div>
-  {{#if this.archivedUsers}}
+  <button type="button" data-test-toggle-show-archived {{on 'click' this.toggleShowArchived}}>
+    {{if this.showArchivedUsers "Hide" "Show"}} archived users
+  </button>
+  {{#if this.showArchivedUsers}}
     <h4>
       Archived users
     </h4>
@@ -43,6 +46,10 @@
             </div>
           </LinkTo>
         </div>
+      {{else}}
+        <p>
+          There are no archived users yet.
+        </p>
       {{/each}}
     </div>
   {{/if}}

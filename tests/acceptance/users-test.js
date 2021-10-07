@@ -27,7 +27,13 @@ module('Acceptance | users', function (hooks) {
     // go back to users page
     await UserPage.backToUsers();
     assert.equal(UsersPage.unarchivedUsers.length, 3);
+    assert.equal(UsersPage.archivedUsers.length, 0);
+    assert.equal(UsersPage.toggleShowArchivedText,'Show archived users');
+
+    // show archived users
+    await UsersPage.toggleShowArchived();
     assert.equal(UsersPage.archivedUsers.length, 1);
+    assert.equal(UsersPage.toggleShowArchivedText,'Hide archived users');
   });
 
 });
